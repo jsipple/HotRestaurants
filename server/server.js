@@ -9,6 +9,12 @@ app.use(express.json());
 app.get('/', function(req,res){
     res.sendFile(path.join(__dirname, ""))
 });
+
+app.get('/:route', (req, res) => {
+ let path = req.params.route
+ 
+})
+
 app.listen(PORT, function(){
     console.log("you are listening on: "+ PORT);
 })
