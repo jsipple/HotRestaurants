@@ -49,4 +49,30 @@
 </form>
 </div>
 </body>
+<script>
+$("#submit").on("click", (e) => {
+  e.preventDefault();
+  const newReservation= {
+      name:$("#name").val().trim(),
+      phoneNumber:$("#phone").val().trim(),
+      email:$("#email").val().trim(),
+      uniqueID:$("#uniqueID").val().trim()
+  };
+  console.log(newReservation)
+  // if(reservations.length<6){
+      $.post("/api/reservation", newReservation)
+      .then(function(data){
+          console.log(data);
+          alert("Your reservation has been made");
+          // document.location.href= "/";
+      });
+  // }else{
+  //     $.post("/api/waitlist", newReservation)
+  //     .then(function(data){
+  //         console.log(data);
+  //         alert("Sorry, we are full. You are on the waitlist");
+  //         document.location.href= "/";
+  //     });
+  });
+</script>
 </html>

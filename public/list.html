@@ -21,7 +21,7 @@
 </div>
 <div class="card">
  <h1>waiting list</h1>
- <div id="card-body">
+ <div id="body">
   <p>example</p>
 </div>
 </div>
@@ -32,4 +32,23 @@
 </div>
 </div>
 </body>
+<script>
+  $.get('/api/reservation/', (data) => {
+    console.log(data)
+    if (data) {
+      for (let i = 0; i < data.length;i++) {
+      let name = $("<h2>").text(data[i].name)
+        let number = $("<p>").text(data[i].phone)
+        let email = $("<p>").text(data[i].email)
+        let id = $("<p>").text(data[i].uniqueID)
+          if (i > 6) {
+      $("#card-body").append(name, number,email,id)
+          } else {
+            $("#body").append(name, number,email,id)
+          }
+        }
+    }
+  })
+</script>
+</script>
 </html>
